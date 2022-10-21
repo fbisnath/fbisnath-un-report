@@ -1,0 +1,155 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Writing Reports with R Markdown},
+  pdfauthor={Felicia Bisnath},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Writing Reports with R Markdown}
+\author{Felicia Bisnath}
+\date{2022-10-21}
+
+\begin{document}
+\maketitle
+
+This report was prepared for the UN. It analyses the relationship
+between a country's GDP, life expectancy, and CO2 emissions. Our goal
+was to determine to what degree a country's economic strength or
+weakness may be related to its public health status and impact on
+climate pollution. We hypothesise that both life expectancy and CO2
+emissions will increase with a country's GDP.
+
+\includegraphics{first_report_files/figure-latex/gdp_lifeexp_1997-1.pdf}
+
+The above plot shows the relationship between the GDP per capita and
+life expectancy for a total of 142 countries. Economic wealth ranged
+from a minimum of \$ 312 to a maximum of 41283 per capita.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Summary of Data & \\
+\midrule()
+\endhead
+Number of countries & 142 \\
+Minimum GDP per cap & 312 \\
+Maximum GDP per cap & 41283 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{lists}{%
+\section{Lists}\label{lists}}
+
+\hypertarget{unordered-lists}{%
+\subsection{Unordered lists}\label{unordered-lists}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R}
+\item
+  \emph{geom}
+\item
+  \textbf{\emph{statistics in R}}
+\end{itemize}
+
+\hypertarget{ordered-lists}{%
+\subsection{Ordered lists}\label{ordered-lists}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{R}
+\item
+  \emph{geom}
+\item
+  \textbf{\emph{statistics in R}}
+\item
+  \href{www.rstudio.com/resources/cheatsheets}{Cheatsheets}
+\item
+  \href{https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}{Markdown
+  cheatsheet}
+\item
+  list1
+
+  \begin{itemize}
+  \tightlist
+  \item
+    one
+  \item
+    two
+  \end{itemize}
+\item
+  list2
+\end{enumerate}
+
+```
+
+\end{document}

@@ -1,0 +1,90 @@
+---
+title: "Writing Reports with R Markdown"
+author: "Felicia Bisnath"
+date: "2022-10-21"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages, include=FALSE}
+library(tidyverse)
+library(here)
+library(knitr)
+```
+This report was prepared for the UN. It analyses the relationship between a country's GDP, life expectancy, and CO2 emissions. Our goal was to determine to what degree a country's economic strength or weakness may be related to its public health status and impact on climate pollution. We hypothesise that both life expectancy and CO2 emissions will increase with a country's GDP. 
+
+``` {r data, include=FALSE}
+gapminder_1997 <- read_csv(here("data/gapminder_1997.csv")) #here figures out where the root is for the project
+
+```
+
+```{r gdp_lifeexp_1997, echo=FALSE}
+ggplot(gapminder_1997, aes(x=gdpPercap, y=lifeExp, color=continent, size=pop/1000000)) +
+  geom_point() +
+  labs(x="GDP (per capita)",
+       y="Life Expectancy",
+       title="Do people in wealthier countries live longer?",
+       size="Population (in millions)",
+       color="Continent")
+```
+
+``` {r summary_data, include=FALSE}
+n_countries <- gapminder_1997 %>%
+  select(country) %>%
+  n_distinct()
+
+```
+
+```{r minimum_gdp, include=FALSE}
+min_gdp <- gapminder_1997 %>%
+  summarise(min=round(min(gdpPercap)))
+
+```
+
+``` {r maximum_gdp, include=FALSE}
+max_gdp <- gapminder_1997 %>%
+  summarise(max=round(max(gdpPercap)))
+
+```
+
+The above plot shows the relationship between the GDP per capita and life expectancy for a total of `r n_countries` countries. Economic wealth ranged from a minimum of $ `r min_gdp` to a maximum of `r max_gdp` per capita.
+
+|Summary of Data|
+|-------|-------|
+|Number of countries| `r n_countries`|
+|Minimum GDP per cap | `r min_gdp`|
+|Maximum GDP per cap | `r max_gdp`|
+
+```{r tables, include=FALSE}
+gapminder_1997 %>%
+  filter(continent == "Oceania") %>%
+  kable()
+
+```
+
+# Lists
+## Unordered lists
+* **R**
+* _geom_
+* **_statistics in R_**
+
+## Ordered lists
+1. **R**
+2. _geom_
+3. **_statistics in R_**
+4. [Cheatsheets](www.rstudio.com/resources/cheatsheets)
+5. [Markdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+
+1. list1
+   - one
+   - two
+2. list2
+
+```
