@@ -4,3 +4,7 @@ Plotted life expectancy vs. time etc.
 Learned how to use Unix shell 
 Created new git repo
 ...
+
+Beth is adding some text to see how this all works
+
+Authors: Vivi & Felicia
