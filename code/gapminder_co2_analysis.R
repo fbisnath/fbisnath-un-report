@@ -166,6 +166,6 @@ ggplot(gapminder_co2, aes(x=gdpPercap, y=per_capita)) +
   geom_point() +
   labs(x="GDP (per capita)",
        y="CO2 emitted (per capita)",
-       title="There is a strong association between a nation's GDP \nand the amount of CO2 it produces") +
+       title="CO2 emissions increase as GDP increases") +
   geom_smooth(method="lm")
 
