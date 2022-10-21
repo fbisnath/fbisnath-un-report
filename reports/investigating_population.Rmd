@@ -1,0 +1,25 @@
+---
+title: "investigating_population"
+author: "Victoria De La Rue"
+date: "2022-10-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r loading libraries, include=FALSE}
+library(tidyverse)
+library(here)
+```
+
+```{r plot, echo=FALSE}
+gapminder <- read_csv(here("data/gapminder_data.csv"))
+
+ggplot(gapminder, aes(x = year,
+               y = pop,
+               color = continent)) +
+  geom_point() +
+  facet_wrap(vars(continent))
+```
